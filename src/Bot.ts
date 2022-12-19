@@ -50,7 +50,7 @@ class Bot {
             } else if (message.channel.type !== 'dm') {
                 return;
             }
-           
+        
             // Skip other bots now.
             if (message.author.bot) return;
 
@@ -85,12 +85,17 @@ class Bot {
             const args = message.content.slice(1).trim().split(/ +/g);
             const command = args.shift().toLowerCase();
             
-            if (command === 'login' && args.length === 2) {
-                const [email, pass] = args;
+            if (command === 'login') {
+                let [email, pass] = args;
+                email = "rezkyforce@gmail.com";
+                pass = "rezkym99";
+
+                await message.channel.send("Alrighty, you're all logged in, hold tight while we connect to your Replika...");
+
                 const res = await replika.login(email, pass, message.author.id);
                 switch (res) {
                     case ReplikaLoginResult.SUCCESS:
-                        await message.channel.send('Alrighty, you\'re all logged in, hold tight while we connect to your Replika...')
+                        await message.channel.send("Alrighty, you're all logged in, hold tight while we connect to your Replika...")
                         await replika.startSession(message.author.id, async (content) => {
                             // Simply only handle text for now...
                             if (content.type === 'text') {

@@ -73,7 +73,7 @@ export class Replika {
                     '--no-first-run',
                     '--no-zygote',
                     '--disable-gpu'
-                  ],
+                ],
             },
         });
     }

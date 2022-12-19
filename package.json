@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "axios": "^0.20.0",
-    "discord.js": "^12.3.1",
+    "discord.js": "^12.5.3",
     "dotenv": "^8.2.0",
     "is-image": "^3.0.0",
     "puppeteer": "^5.3.0",
